@@ -68,10 +68,10 @@ public class Lectura {
     }
 
 
-    public String getCodigoRuna(){
+    //public String getCodigoRuna(){}
 
 
-    }
+
     public LocalDateTime getFechaHora() {
         return LocalDateTime.ofInstant(Instant.ofEpochMilli(timestamp), ZoneId.systemDefault());
     }

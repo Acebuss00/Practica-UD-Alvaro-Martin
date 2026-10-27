@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98ce807a-5aa2-493e-8a8b-076826911778" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/EstadoElemento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/EstadoZona.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/FaccionPersonaje.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/TipoElemento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/TipoEvento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Elemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Elemento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Lectura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Lectura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Personaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Personaje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/TipoIncidente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/TipoIncidente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/TipoRuna.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/TipoRuna.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Zona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Zona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/ciudad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/ciudad.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
