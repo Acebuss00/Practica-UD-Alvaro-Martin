@@ -5,32 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98ce807a-5aa2-493e-8a8b-076826911778" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/analizador/AnalizadorForense.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/analizador/DetectorIncidentes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/analizador/GeneradorSalidas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/analizador/ResultadoAnalisis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/excepciones/EventoCriticoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/Elemento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/Evento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/Lectura.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/Personaje.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/TipoIncidente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/TipoRuna.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/Zona.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/ciudad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/persistencia/PersistenciaBin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/persistencia/PersistenciaJSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/persistencia/PersistenciaTexto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/persistencia/Rutas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simulador/MotorIncidentes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/simulador/Simulador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PracticaUD1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/EstadoElemento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/EstadoZona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/FaccionPersonaje.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/TipoElemento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/TipoEvento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Elemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Elemento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Lectura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Lectura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Personaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Personaje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/TipoIncidente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/TipoIncidente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/TipoRuna.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/enums/TipoRuna.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Zona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/Zona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/ciudad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/ciudad.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +29,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Exception" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>

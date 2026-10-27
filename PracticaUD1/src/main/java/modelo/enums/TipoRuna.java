@@ -1,0 +1,6 @@
+package modelo.enums;
+
+public enum TipoRuna {
+
+    MANA, ENERGIA_ARCANA, TEMPERATURA, CORRUPCION_NECROTICA, CONTAMINACION, DETECCION_SIGILO
+}

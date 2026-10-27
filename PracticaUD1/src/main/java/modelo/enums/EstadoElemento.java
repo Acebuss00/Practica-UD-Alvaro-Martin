@@ -1,0 +1,7 @@
+package modelo.enums;
+
+public enum EstadoElemento {
+
+    OPERATIVO, CAIDO, BRECHA, INESTABLE, AGOTADO, VACIO, DESACTIVADA, EN_LLAMAS, DESTRUIDO, COMPROMETIDA, CONTAMINADO
+
+}
