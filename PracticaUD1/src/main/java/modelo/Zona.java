@@ -16,8 +16,17 @@ public class Zona {
 
     //Constructor
 
-    //vacio para JSON
+
     public Zona() {
+        this.elementos = new ArrayList<>();
+    }
+
+    public Zona(String id, String nombre, boolean restringida, EstadoZona estado) {
+        this.id = id;
+        this.nombre = nombre;
+        this.restringida = restringida;
+        this.estado = estado;
+        this.elementos = new ArrayList<>();
     }
 
     public Zona(String id, String nombre, boolean restringida, EstadoZona estado, List<Elemento> elementos) {

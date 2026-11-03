@@ -6,47 +6,69 @@ import java.nio.file.Path;
 
 public class Rutas {
 
-    private final Path base;
+    private final Path carpetaDatos;
+    private final Path carpetaSalida;
 
-    //Rutas relativas a donde se ejecuta el programa
+    /** datos/ y salida/ en la carpeta en la que se ejecuta el programa. */
     public Rutas() {
-        this(Path.of("."));
+        this(Path.of("datos"), Path.of("salida"));
     }
 
-    //Rutas a partir de una carpeta concreta
+    /** datos/ y salida/ dentro de una carpeta base (se usa en los tests). */
     public Rutas(Path base) {
-        this.base = base;
+        this(base.resolve("datos"), base.resolve("salida"));
     }
 
-    //Carpetas
+    /** Carpetas concretas, por ejemplo las recibidas por argumento. */
+    public Rutas(Path carpetaDatos, Path carpetaSalida) {
+        this.carpetaDatos = carpetaDatos;
+        this.carpetaSalida = carpetaSalida;
+    }
+
+    // ---------- Carpetas ----------
 
     public Path getCarpetaDatos() {
-        return base.resolve("datos");
+        return carpetaDatos;
     }
 
     public Path getCarpetaSalida() {
-        return base.resolve("salida");
+        return carpetaSalida;
     }
 
-    //Ficheros simulador
+    // ---------- Ficheros del simulador (entrada del analizador) ----------
 
     public Path getEventos() {
-        return getCarpetaDatos().resolve("eventos.txt");
+        return carpetaDatos.resolve("eventos.txt");
     }
 
     public Path getLecturas() {
-        return getCarpetaDatos().resolve("lecturas.dat");
+        return carpetaDatos.resolve("lecturas.dat");
     }
 
     public Path getCiudad() {
-        return getCarpetaDatos().resolve("ciudad.json");
+        return carpetaDatos.resolve("ciudad.xml");
     }
 
+    // ---------- Ficheros generados por el analizador ----------
 
-    //Crea las carpetas datos/ y salida/ si no existen. No salta excepcion si la carpeta ya existe
+    public Path getInforme() {
+        return carpetaSalida.resolve("informe.txt");
+    }
 
+    public Path getAnomalias() {
+        return carpetaSalida.resolve("anomalias.dat");
+    }
+
+    public Path getAfectados() {
+        return carpetaSalida.resolve("afectados.xml");
+    }
+
+    /**
+     * Crea las carpetas de datos y salida si no existen.
+     * Files.createDirectories no falla si la carpeta ya existe.
+     */
     public void crearDirectorios() throws IOException {
-        Files.createDirectories(getCarpetaDatos());
-        Files.createDirectories(getCarpetaSalida());
+        Files.createDirectories(carpetaDatos);
+        Files.createDirectories(carpetaSalida);
     }
 }

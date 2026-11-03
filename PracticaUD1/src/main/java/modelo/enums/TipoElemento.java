@@ -2,6 +2,6 @@ package modelo.enums;
 
 public enum TipoElemento {
 
-    GUARDIA, PORTAL, CRISTAL, ALMACEN, PUERTA, RUNA
+    GUARDIA, PORTAL, CRISTAL, ALMACEN, PUERTA, RUNA, BARRERA, MAGO
 
 }

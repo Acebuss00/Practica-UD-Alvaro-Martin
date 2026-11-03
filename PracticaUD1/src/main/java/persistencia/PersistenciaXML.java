@@ -46,15 +46,12 @@ public class PersistenciaXML {
     // =====================================================================
 
     /**
-     * Guarda la ciudad completa.
-     * Primero escribe en un fichero temporal y luego lo mueve encima del real (NIO.2),
-     * para que ciudad.xml nunca quede a medias si el programa se cae escribiendo.
+     * Guarda la ciudad completa en el fichero (sustituye su contenido anterior).
      */
     public void guardarCiudad(ciudad ciudad) throws IOException {
         try {
             // 1. Crear un documento vacío
-            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document doc = builder.newDocument();
+            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 
             // 2. Construir el árbol
             Element raiz = doc.createElement("ciudad");
@@ -73,21 +70,46 @@ public class PersistenciaXML {
                 personajesXml.appendChild(crearNodoPersonaje(doc, personaje));
             }
 
-            // 3. Escribir el árbol en el fichero con un Transformer
-            Path temporal = fichero.resolveSibling(fichero.getFileName() + ".tmp");
+            // 3. Escribir el árbol en el fichero
+            escribirDocumento(doc, fichero);
+            log.debug("Ciudad guardada en {}", fichero.getFileName());
+
+        } catch (ParserConfigurationException e) {
+            // La convertimos en IOException para que quien llame solo tenga que tratar un tipo
+            throw new IOException("No se pudo crear el documento XML", e);
+        }
+    }
+
+    // =====================================================================
+    // UTILIDADES DOM (también las usa el analizador para escribir afectados.xml)
+    // =====================================================================
+
+    /** Crea un documento DOM vacío. */
+    public static Document nuevoDocumento() throws IOException {
+        try {
+            return DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+        } catch (ParserConfigurationException e) {
+            throw new IOException("No se pudo crear el documento XML", e);
+        }
+    }
+
+    /**
+     * Escribe un árbol DOM en un fichero con un Transformer.
+     * Primero escribe en un fichero temporal y luego lo mueve encima del real (NIO.2),
+     * para que el destino nunca quede a medias si el programa se cae escribiendo.
+     */
+    public static void escribirDocumento(Document doc, Path destino) throws IOException {
+        Path temporal = destino.resolveSibling(destino.getFileName() + ".tmp");
+        try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             transformer.transform(new DOMSource(doc), new StreamResult(temporal.toFile()));
-
-            Files.move(temporal, fichero, StandardCopyOption.REPLACE_EXISTING);
-            log.debug("Ciudad guardada en {}", fichero.getFileName());
-
-        } catch (ParserConfigurationException | TransformerException e) {
-            // Las convertimos en IOException para que quien llame solo tenga que tratar un tipo
-            throw new IOException("No se pudo escribir " + fichero.getFileName(), e);
+        } catch (TransformerException e) {
+            throw new IOException("No se pudo escribir " + destino.getFileName(), e);
         }
+        Files.move(temporal, destino, StandardCopyOption.REPLACE_EXISTING);
     }
 
     private Element crearNodoZona(Document doc, Zona zona) {
@@ -153,7 +175,7 @@ public class PersistenciaXML {
 
             // 2. Recorrer el árbol y crear los objetos
             Element raiz = doc.getDocumentElement();
-            ciudad ciudad = new ciudad();
+            ciudad ciudad = new ciudad(atributoObligatorio(raiz, "nombre"));
 
             NodeList zonas = raiz.getElementsByTagName("zona");
             for (int i = 0; i < zonas.getLength(); i++) {
@@ -180,7 +202,11 @@ public class PersistenciaXML {
     }
 
     private Zona leerZona(Element zonaXml) {
-        Zona zona = new Zona();
+        Zona zona = new Zona(
+                atributoObligatorio(zonaXml, "id"),
+                textoDeHijo(zonaXml, "nombre"),
+                Boolean.parseBoolean(zonaXml.getAttribute("restringida")),
+                EstadoZona.valueOf(atributoObligatorio(zonaXml, "estado")));
 
         NodeList elementos = zonaXml.getElementsByTagName("elemento");
         for (int i = 0; i < elementos.getLength(); i++) {
@@ -194,7 +220,10 @@ public class PersistenciaXML {
     }
 
     private Personaje leerPersonaje(Element personajeXml) {
-        Personaje personaje = new Personaje();
+        Personaje personaje = new Personaje(
+                atributoObligatorio(personajeXml, "id"),
+                textoDeHijo(personajeXml, "nombre"),
+                FaccionPersonaje.valueOf(atributoObligatorio(personajeXml, "faccion")));
 
         NodeList permitidas = personajeXml.getElementsByTagName("zonaPermitida");
         for (int i = 0; i < permitidas.getLength(); i++) {

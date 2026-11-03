@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ciudad nombre="Ventormenta">
+  <zonas>
+    <zona estado="NORMAL" id="Z01" restringida="false">
+      <nombre>Puerta principal</nombre>
+      <elementos>
+        <elemento estado="OPERATIVO" id="G01" tipo="GUARDIA"/>
+        <elemento estado="OPERATIVO" id="G02" tipo="GUARDIA"/>
+        <elemento estado="OPERATIVO" id="PU01" tipo="PUERTA"/>
+        <elemento estado="OPERATIVO" id="R01" tipo="RUNA"/>
+        <elemento estado="OPERATIVO" id="R02" tipo="RUNA"/>
+        <elemento estado="OPERATIVO" id="R03" tipo="RUNA"/>
+      </elementos>
+    </zona>
+    <zona estado="NORMAL" id="Z02" restringida="false">
+      <nombre>Distrito de los Magos</nombre>
+      <elementos>
+        <elemento estado="OPERATIVO" id="P01" tipo="PORTAL"/>
+        <elemento estado="OPERATIVO" id="P02" tipo="PORTAL"/>
+        <elemento estado="OPERATIVO" id="M01" tipo="MAGO"/>
+        <elemento estado="OPERATIVO" id="G03" tipo="GUARDIA"/>
+        <elemento estado="OPERATIVO" id="R04" tipo="RUNA"/>
+        <elemento estado="OPERATIVO" id="R05" tipo="RUNA"/>
+        <elemento estado="OPERATIVO" id="R06" tipo="RUNA"/>
+      </elementos>
+    </zona>
+    <zona estado="NORMAL" id="Z03" restringida="false">
+      <nombre>Casco Antiguo</nombre>
+      <elementos>
+        <elemento estado="OPERATIVO" id="A01" tipo="ALMACEN"/>
+        <elemento estado="OPERATIVO" id="A02" tipo="ALMACEN"/>
+        <elemento estado="OPERATIVO" id="G04" tipo="GUARDIA"/>
+        <elemento estado="OPERATIVO" id="R07" tipo="RUNA"/>
+        <elemento estado="OPERATIVO" id="R08" tipo="RUNA"/>
+        <elemento estado="OPERATIVO" id="R09" tipo="RUNA"/>
+      </elementos>
+    </zona>
+    <zona estado="NORMAL" id="Z04" restringida="true">
+      <nombre>Fortaleza</nombre>
+      <elementos>
+        <elemento estado="OPERATIVO" id="C01" tipo="CRISTAL"/>
+        <elemento estado="OPERATIVO" id="C02" tipo="CRISTAL"/>
+        <elemento estado="OPERATIVO" id="BA01" tipo="BARRERA"/>
+        <elemento estado="OPERATIVO" id="G05" tipo="GUARDIA"/>
+        <elemento estado="OPERATIVO" id="PU02" tipo="PUERTA"/>
+        <elemento estado="OPERATIVO" id="R10" tipo="RUNA"/>
+        <elemento estado="OPERATIVO" id="R11" tipo="RUNA"/>
+        <elemento estado="OPERATIVO" id="R12" tipo="RUNA"/>
+      </elementos>
+    </zona>
+  </zonas>
+  <personajes>
+    <personaje faccion="ALIANZA" id="PJ001">
+      <nombre>Jaina Valiente</nombre>
+      <zonaPermitida>Z01</zonaPermitida>
+      <zonaPermitida>Z02</zonaPermitida>
+      <zonaPermitida>Z03</zonaPermitida>
+      <zonaPermitida>Z04</zonaPermitida>
+    </personaje>
+    <personaje faccion="ALIANZA" id="PJ002">
+      <nombre>Varian Wrynn</nombre>
+      <zonaPermitida>Z01</zonaPermitida>
+      <zonaPermitida>Z02</zonaPermitida>
+      <zonaPermitida>Z03</zonaPermitida>
+      <zonaPermitida>Z04</zonaPermitida>
+    </personaje>
+    <personaje faccion="ALIANZA" id="PJ003">
+      <nombre>Mathias Shaw</nombre>
+      <zonaPermitida>Z01</zonaPermitida>
+      <zonaPermitida>Z02</zonaPermitida>
+      <zonaPermitida>Z03</zonaPermitida>
+      <zonaPermitida>Z04</zonaPermitida>
+    </personaje>
+    <personaje faccion="ALIANZA" id="PJ004">
+      <nombre>Comerciante de Dalaran</nombre>
+      <zonaPermitida>Z01</zonaPermitida>
+      <zonaPermitida>Z02</zonaPermitida>
+      <zonaPermitida>Z03</zonaPermitida>
+    </personaje>
+    <personaje faccion="ALIANZA" id="PJ005">
+      <nombre>Granjero de Villadorada</nombre>
+      <zonaPermitida>Z01</zonaPermitida>
+      <zonaPermitida>Z03</zonaPermitida>
+    </personaje>
+  </personajes>
+</ciudad>

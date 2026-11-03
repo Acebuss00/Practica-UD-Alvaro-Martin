@@ -18,6 +18,15 @@ public class Personaje {
     //Constructores
 
     public Personaje() {
+        this.zonasPermitidas = new ArrayList<>();
+    }
+
+
+    public Personaje(String id, String nombre, FaccionPersonaje faccion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.faccion = faccion;
+        this.zonasPermitidas = new ArrayList<>();
     }
 
     public Personaje(String id, String nombre, FaccionPersonaje faccion, List<String> zonasPermitidas) {
@@ -26,6 +35,8 @@ public class Personaje {
         this.faccion = faccion;
         this.zonasPermitidas = zonasPermitidas;
     }
+
+
 
     //Getter y Setter
 
@@ -63,6 +74,10 @@ public class Personaje {
     }
 
     //ToString
+
+    public boolean puedeEntrarEn(String idZona) {
+        return zonasPermitidas.contains(idZona);
+    }
 
 
     @Override

@@ -21,6 +21,9 @@ public class PersistenciaBin {
 
     private static final Logger log = LogManager.getLogger(PersistenciaBin.class);
 
+    /** Número de registros reservados al principio para el estado actual (uno por runa). */
+    public static final int REGISTROS_ESTADO = 12;
+
     private final Path fichero;
 
     public PersistenciaBin(Path fichero) {
@@ -113,6 +116,27 @@ public class PersistenciaBin {
         }
         log.debug("{} lecturas leídas de {}", lecturas.size(), fichero.getFileName());
         return lecturas;
+    }
+
+    // ---------- Zona de estado actual (acceso directo por número de runa) ----------
+
+    /** Lee el último valor de una runa: R01 está en el registro 0, R12 en el 11. */
+    public Lectura leerEstadoRuna(int idRuna) throws IOException {
+        return leerLectura(idRuna - 1);
+    }
+
+    /** Sobrescribe el último valor de la runa de esa lectura, sin tocar el resto del fichero. */
+    public void actualizarEstadoRuna(Lectura lectura) throws IOException {
+        modificarLectura(lectura.getIdRuna() - 1, lectura);
+    }
+
+    /** Devuelve solo el histórico (registros a partir del 12), sin la zona de estado actual. */
+    public List<Lectura> leerHistorico() throws IOException {
+        List<Lectura> todas = leerTodas();
+        if (todas.size() <= REGISTROS_ESTADO) {
+            return new ArrayList<>();
+        }
+        return new ArrayList<>(todas.subList(REGISTROS_ESTADO, todas.size()));
     }
 
     // ---------- Métodos privados ----------

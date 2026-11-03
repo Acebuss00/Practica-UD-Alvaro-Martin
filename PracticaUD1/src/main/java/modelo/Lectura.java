@@ -68,11 +68,19 @@ public class Lectura {
     }
 
 
-    //public String getCodigoRuna(){}
+    /** Convierte el número de runa al id que aparece en el XML: 5 -> "R05". */
+    public String getCodigoRuna() {
+        return String.format("R%02d", idRuna);
+    }
 
-
-
+    /** Convierte el timestamp en una fecha legible, útil para el informe y los logs. */
     public LocalDateTime getFechaHora() {
         return LocalDateTime.ofInstant(Instant.ofEpochMilli(timestamp), ZoneId.systemDefault());
+    }
+
+    @Override
+    public String toString() {
+        return "Lectura{runa=" + getCodigoRuna() + ", tipo=" + tipoRuna + ", valor=" + valor
+                + ", fecha=" + getFechaHora() + ", anomala=" + anomala + "}";
     }
 }
