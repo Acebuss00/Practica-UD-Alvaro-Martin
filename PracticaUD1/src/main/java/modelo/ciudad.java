@@ -58,4 +58,60 @@ public class ciudad {
                 ", personajes=" + personajes +
                 '}';
     }
+
+    //Metodos
+
+    //Busca una zona por su id ("Z01"). Devuelve null si no existe.
+
+    public Zona buscarZona(String idZona) {
+        for (Zona zona : zonas) {
+            if (zona.getId().equals(idZona)) {
+                return zona;
+            }
+        }
+        return null;
+    }
+
+
+    /**
+     * Busca en qué zona está un elemento ("R05" -> la zona que lo contiene).
+     * Es lo que permite relacionar una Lectura del binario con el JSON.
+     * Devuelve null si ningún elemento tiene ese id.
+     */
+    public Zona buscarZonaDeElemento(String idElemento) {
+        for (Zona zona : zonas) {
+            for (Elemento elemento : zona.getElementos()) {
+                if (elemento.getId().equals(idElemento)) {
+                    return zona;
+                }
+            }
+        }
+        return null;
+    }
+
+
+    // Busca un elemento por id en cualquier zona. Devuelve null si no existe.
+    public Elemento buscarElemento(String idElemento) {
+        for (Zona zona : zonas) {
+            for (Elemento elemento : zona.getElementos()) {
+                if (elemento.getId().equals(idElemento)) {
+                    return elemento;
+                }
+            }
+        }
+        return null;
+    }
+
+
+    // Busca un personaje por id ("PJ001"). Devuelve null si no existe.
+
+    public Personaje buscarPersonaje(String idPersonaje) {
+        for (Personaje personaje : personajes) {
+            if (personaje.getId().equals(idPersonaje)) {
+                return personaje;
+            }
+        }
+        return null;
+    }
 }
+
