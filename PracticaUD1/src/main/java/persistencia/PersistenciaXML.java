@@ -31,6 +31,36 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
+/**
+ * Guarda y carga ciudad.xml con DOM (modelo de árbol).
+ *
+ * Se usa DOM porque el simulador necesita tener la ciudad entera en memoria,
+ * cambiar el estado de zonas y elementos y volver a guardarla. DOM permite leer,
+ * recorrer, modificar y escribir el árbol completo. SAX solo sirve para leer
+ * secuencialmente y no permite escribir.
+ *
+ * Estructura del fichero:
+ * <pre>
+ * &lt;ciudad nombre="Ventormenta"&gt;
+ *   &lt;zonas&gt;
+ *     &lt;zona id="Z01" restringida="false" estado="NORMAL"&gt;
+ *       &lt;nombre&gt;Puerta principal&lt;/nombre&gt;
+ *       &lt;elementos&gt;
+ *         &lt;elemento id="G01" tipo="GUARDIA" estado="OPERATIVO"/&gt;
+ *       &lt;/elementos&gt;
+ *     &lt;/zona&gt;
+ *   &lt;/zonas&gt;
+ *   &lt;personajes&gt;
+ *     &lt;personaje id="PJ001" faccion="ALIANZA"&gt;
+ *       &lt;nombre&gt;Jaina&lt;/nombre&gt;
+ *       &lt;zonaPermitida&gt;Z01&lt;/zonaPermitida&gt;
+ *     &lt;/personaje&gt;
+ *   &lt;/personajes&gt;
+ * &lt;/ciudad&gt;
+ * </pre>
+ * Los ids y estados van como atributos (son datos cortos que identifican);
+ * los nombres y listas van como elementos hijos.
+ */
 public class PersistenciaXML {
 
     private static final Logger log = LogManager.getLogger(PersistenciaXML.class);

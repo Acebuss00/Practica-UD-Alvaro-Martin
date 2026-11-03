@@ -1,5 +1,12 @@
 package modelo.enums;
 
+/**
+ * Incidentes que puede sufrir la ciudad.
+ *
+ * El simulador lo usa para elegir qué incidente provocar y el analizador para expresar
+ * su conclusión. NUNCA se pasa un valor de este enum de un programa al otro:
+ * el analizador lo deduce solo a partir de los ficheros de datos.
+ */
 public enum TipoIncidente {
 
     INCURSION_PLAGA("Incursión de la Plaga",

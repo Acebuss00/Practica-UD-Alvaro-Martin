@@ -1,11 +1,21 @@
 === INFORME FORENSE · SISTEMA DE DEFENSA DE VENTORMENTA ===
-Fecha del análisis: 03/11/2026 21:32:57
-Datos analizados: 30 eventos (TXT), 360 lecturas (BIN), 4 zonas (XML)
+Fecha del análisis: 03/11/2026 21:38:48
+Datos analizados: 12 eventos (TXT), 96 lecturas (BIN), 4 zonas (XML)
 
-INCIDENTE DETECTADO: INDETERMINADO (Indeterminado)
+INCIDENTE DETECTADO: ATAQUE_DRAGON (Ataque de dragón)
+Zona afectada: Z03 · Casco Antiguo
+
+ACONTECIMIENTOS RELACIONADOS (eventos.txt)
+  03/11/2026 21:13:37  AVISTAMIENTO  G04  Una sombra enorme sobrevuela el Casco Antiguo
+  03/11/2026 21:15:37  AVISTAMIENTO  G04  Un dragón negro escupe fuego sobre los almacenes
 
 EFECTOS DETECTADOS
-  - No se han encontrado evidencias coincidentes en TXT, BIN y XML.
+  - Zona Z03 (Casco Antiguo) en estado EMERGENCIA
+  - Almacen A01: DESTRUIDO
+  - Almacen A02: EN_LLAMAS
+  - Guardia G04: CAIDO
+  - 3 lecturas de TEMPERATURA fuera de rango (normal 5-40 ºC, valor más extremo 650,0)
+  - Valor actual de R08: 650,0 ºC
 
 CONCLUSIÓN
-  Los datos no permiten identificar ninguno de los incidentes conocidos.
+  Un dragón ha atacado el Casco Antiguo: los almacenes han ardido y se han perdido reservas de la ciudad.

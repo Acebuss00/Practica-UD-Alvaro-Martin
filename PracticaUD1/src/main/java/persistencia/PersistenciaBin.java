@@ -1,6 +1,5 @@
 package persistencia;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import modelo.Lectura;
@@ -17,6 +16,25 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Gestiona lecturas.dat: registros de tamaño fijo (Lectura.TAMANO_REGISTRO = 25 bytes).
+ *
+ * Como todos los registros miden lo mismo, la posición en bytes de cualquiera se calcula:
+ *   posicionEnBytes = numeroRegistro * 25
+ * y con raf.seek() saltamos directamente a él sin leer los anteriores.
+ *
+ * Operaciones obligatorias del enunciado:
+ *   - anadirLectura     -> añadir registros al final
+ *   - leerLectura       -> leer uno concreto por acceso directo
+ *   - modificarLectura  -> cambiar uno sin reescribir el fichero
+ *
+ * Organización de lecturas.dat:
+ *   registros 0 a 11  -> ESTADO ACTUAL: último valor de cada runa (R01 en el 0, R12 en el 11).
+ *                        Se modifican en su sitio con seek cada vez que llega una medición.
+ *   registros 12 en adelante -> HISTÓRICO: todas las mediciones, añadidas al final.
+ * Así se puede consultar el valor actual de una runa saltando directamente a su registro,
+ * sin recorrer el histórico.
+ */
 public class PersistenciaBin {
 
     private static final Logger log = LogManager.getLogger(PersistenciaBin.class);
@@ -177,5 +195,4 @@ public class PersistenciaBin {
                     + " no existe (hay " + total + " registros)");
         }
     }
-
 }

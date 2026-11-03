@@ -24,12 +24,12 @@
         <elemento estado="OPERATIVO" id="R06" tipo="RUNA"/>
       </elementos>
     </zona>
-    <zona estado="NORMAL" id="Z03" restringida="false">
+    <zona estado="EMERGENCIA" id="Z03" restringida="false">
       <nombre>Casco Antiguo</nombre>
       <elementos>
-        <elemento estado="OPERATIVO" id="A01" tipo="ALMACEN"/>
-        <elemento estado="OPERATIVO" id="A02" tipo="ALMACEN"/>
-        <elemento estado="OPERATIVO" id="G04" tipo="GUARDIA"/>
+        <elemento estado="DESTRUIDO" id="A01" tipo="ALMACEN"/>
+        <elemento estado="EN_LLAMAS" id="A02" tipo="ALMACEN"/>
+        <elemento estado="CAIDO" id="G04" tipo="GUARDIA"/>
         <elemento estado="OPERATIVO" id="R07" tipo="RUNA"/>
         <elemento estado="OPERATIVO" id="R08" tipo="RUNA"/>
         <elemento estado="OPERATIVO" id="R09" tipo="RUNA"/>

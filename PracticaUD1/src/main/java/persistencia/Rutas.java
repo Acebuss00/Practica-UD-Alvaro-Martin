@@ -4,6 +4,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * Centraliza todas las rutas del proyecto usando NIO.2 (Path y Files).
+ *
+ * Todas las rutas son RELATIVAS: por defecto "datos/" y "salida/" dentro de la carpeta
+ * desde la que se ejecuta el programa. En los tests se usa una carpeta temporal (@TempDir).
+ * Así el proyecto funciona en cualquier ordenador sin tocar el código.
+ */
 public class Rutas {
 
     private final Path carpetaDatos;

@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<analisis fecha="2026-11-03T21:32:57" incidente="INDETERMINADO"/>
+<analisis fecha="2026-11-03T21:38:48" incidente="ATAQUE_DRAGON">
+  <zona estado="EMERGENCIA" id="Z03" nombre="Casco Antiguo" restringida="false">
+    <elemento estado="DESTRUIDO" id="A01" tipo="ALMACEN"/>
+    <elemento estado="EN_LLAMAS" id="A02" tipo="ALMACEN"/>
+    <elemento estado="CAIDO" id="G04" tipo="GUARDIA"/>
+    <runa id="R08" lecturasAnomalas="3" tipo="TEMPERATURA"/>
+  </zona>
+</analisis>

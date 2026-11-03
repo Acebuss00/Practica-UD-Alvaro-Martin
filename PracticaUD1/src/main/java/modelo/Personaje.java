@@ -5,22 +5,19 @@ import modelo.enums.FaccionPersonaje;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Personaje con acceso a la ciudad. Se guarda dentro de ciudad.xml.
+ */
 public class Personaje {
 
-    //Los personajes estarán basados en el universo de World of Warcraft
-
-    private String id;
+    private String id;                    // "PJ001"
     private String nombre;
     private FaccionPersonaje faccion;
-    private List<String> zonasPermitidas = new ArrayList<>();
-
-
-    //Constructores
+    private List<String> zonasPermitidas; // ids de zona: "Z01", "Z04"...
 
     public Personaje() {
         this.zonasPermitidas = new ArrayList<>();
     }
-
 
     public Personaje(String id, String nombre, FaccionPersonaje faccion) {
         this.id = id;
@@ -35,11 +32,6 @@ public class Personaje {
         this.faccion = faccion;
         this.zonasPermitidas = zonasPermitidas;
     }
-
-
-
-    //Getter y Setter
-
 
     public String getId() {
         return id;
@@ -73,20 +65,14 @@ public class Personaje {
         this.zonasPermitidas = zonasPermitidas;
     }
 
-    //ToString
-
+    /** Devuelve true si el personaje tiene permiso para entrar en esa zona. */
     public boolean puedeEntrarEn(String idZona) {
         return zonasPermitidas.contains(idZona);
     }
 
-
     @Override
     public String toString() {
-        return "Personaje{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", faccion=" + faccion +
-                ", zonasPermitidas=" + zonasPermitidas +
-                '}';
+        return "Personaje{id='" + id + "', nombre='" + nombre + "', faccion=" + faccion
+                + ", zonasPermitidas=" + zonasPermitidas + "}";
     }
 }

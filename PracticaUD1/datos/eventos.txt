@@ -1,30 +1,12 @@
-2026-11-03T21:03:21;Z02;P01;VIAJE_PORTAL;Viaje por el portal P01 sin incidencias
-2026-11-03T21:04:21;Z04;G05;CAMBIO_TURNO;Relevo de guardia de G05
-2026-11-03T21:05:21;Z04;C01;RECARGA;Recarga completa del cristal C01
-2026-11-03T21:06:21;Z02;P02;VIAJE_PORTAL;Viaje por el portal P02 sin incidencias
-2026-11-03T21:07:21;Z02;P02;VIAJE_PORTAL;Viaje por el portal P02 sin incidencias
-2026-11-03T21:08:21;Z02;PJ004;ACCESO;Comerciante de Dalaran accede a la zona Z02
-2026-11-03T21:09:21;Z02;P01;VIAJE_PORTAL;Viaje por el portal P01 sin incidencias
-2026-11-03T21:10:21;Z04;C02;RECARGA;Recarga completa del cristal C02
-2026-11-03T21:11:21;Z04;C01;RECARGA;Recarga completa del cristal C01
-2026-11-03T21:12:21;Z03;A02;REPARTO_GRANO;Reparto de grano del almacén A02
-2026-11-03T21:13:21;Z04;C01;RECARGA;Recarga completa del cristal C01
-2026-11-03T21:14:21;Z02;P01;VIAJE_PORTAL;Viaje por el portal P01 sin incidencias
-2026-11-03T21:15:21;Z04;C01;RECARGA;Recarga completa del cristal C01
-2026-11-03T21:16:21;Z02;P02;VIAJE_PORTAL;Viaje por el portal P02 sin incidencias
-2026-11-03T21:17:21;Z04;C01;RECARGA;Recarga completa del cristal C01
-2026-11-03T21:18:21;Z03;G04;CAMBIO_TURNO;Relevo de guardia de G04
-2026-11-03T21:19:21;Z02;PJ004;ACCESO;Comerciante de Dalaran accede a la zona Z02
-2026-11-03T21:20:21;Z03;A02;REPARTO_GRANO;Reparto de grano del almacén A02
-2026-11-03T21:21:21;Z04;C02;RECARGA;Recarga completa del cristal C02
-2026-11-03T21:22:21;Z02;P01;VIAJE_PORTAL;Viaje por el portal P01 sin incidencias
-2026-11-03T21:23:21;Z03;A01;REPARTO_GRANO;Reparto de grano del almacén A01
-2026-11-03T21:24:21;Z03;PJ005;ACCESO;Granjero de Villadorada accede a la zona Z03
-2026-11-03T21:25:21;Z04;C01;RECARGA;Recarga completa del cristal C01
-2026-11-03T21:26:21;Z04;C01;RECARGA;Recarga completa del cristal C01
-2026-11-03T21:27:21;Z03;PJ001;ACCESO;Jaina Valiente accede a la zona Z03
-2026-11-03T21:28:21;Z03;PJ002;ACCESO;Varian Wrynn accede a la zona Z03
-2026-11-03T21:29:21;Z01;G02;CAMBIO_TURNO;Relevo de guardia de G02
-2026-11-03T21:30:21;Z04;C02;RECARGA;Recarga completa del cristal C02
-2026-11-03T21:31:21;Z02;P01;VIAJE_PORTAL;Viaje por el portal P01 sin incidencias
-2026-11-03T21:32:21;Z03;A01;REPARTO_GRANO;Reparto de grano del almacén A01
+2026-11-03T21:09:37;Z02;P02;VIAJE_PORTAL;Viaje por el portal P02 sin incidencias
+2026-11-03T21:10:37;Z02;P02;VIAJE_PORTAL;Viaje por el portal P02 sin incidencias
+2026-11-03T21:11:37;Z03;G04;CAMBIO_TURNO;Relevo de guardia de G04
+2026-11-03T21:12:37;Z02;P01;VIAJE_PORTAL;Viaje por el portal P01 sin incidencias
+2026-11-03T21:13:37;Z02;P01;VIAJE_PORTAL;Viaje por el portal P01 sin incidencias
+2026-11-03T21:13:37;Z03;G04;AVISTAMIENTO;Una sombra enorme sobrevuela el Casco Antiguo
+2026-11-03T21:14:37;Z02;P02;VIAJE_PORTAL;Viaje por el portal P02 sin incidencias
+2026-11-03T21:14:37;Z03;A01;AVISO;Fuego en el tejado del almacén A01
+2026-11-03T21:15:37;Z03;PJ004;ACCESO;Comerciante de Dalaran accede a la zona Z03
+2026-11-03T21:15:37;Z03;G04;AVISTAMIENTO;Un dragón negro escupe fuego sobre los almacenes
+2026-11-03T21:16:37;Z04;PJ002;ACCESO;Varian Wrynn accede a la zona Z04
+2026-11-03T21:16:37;Z03;A01;AVISO;El almacén A01 se derrumba

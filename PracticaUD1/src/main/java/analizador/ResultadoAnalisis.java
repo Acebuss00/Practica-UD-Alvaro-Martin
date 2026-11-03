@@ -10,6 +10,13 @@ import modelo.Zona;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Conclusión del análisis y evidencias que la justifican.
+ * Cada lista alimenta un fichero de salida distinto:
+ *   efectos + eventos      -> informe.txt
+ *   lecturasAnomalas       -> anomalias.dat
+ *   zona + elementos + personajes -> afectados.xml
+ */
 public class ResultadoAnalisis {
 
     private TipoIncidente incidente = TipoIncidente.INDETERMINADO;
@@ -84,5 +91,4 @@ public class ResultadoAnalisis {
     public void setZonasLeidas(int zonasLeidas) {
         this.zonasLeidas = zonasLeidas;
     }
-
 }

@@ -5,22 +5,25 @@ import modelo.enums.EstadoZona;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Zona de la ciudad de Ventormenta (Puerta principal, Distrito de los Magos...).
+ * Se guarda dentro de ciudad.xml y contiene los elementos que hay en ella.
+ */
 public class Zona {
 
-    private String id;
-    private String nombre;
-    private boolean restringida;
-    private EstadoZona estado;
+    // 1. ATRIBUTOS: siempre private
+    private String id;              // "Z01"
+    private String nombre;          // "Puerta principal"
+    private boolean restringida;    // true si solo pueden entrar personajes con permiso
+    private EstadoZona estado;      // NORMAL, EMERGENCIA, CUARENTENA
     private List<Elemento> elementos;
 
-
-    //Constructor
-
-
+    // 2. CONSTRUCTOR VACÍO: crea la zona con la lista de elementos ya inicializada
     public Zona() {
         this.elementos = new ArrayList<>();
     }
 
+    // 3. CONSTRUCTOR COMPLETO: para crear zonas cómodamente desde el simulador
     public Zona(String id, String nombre, boolean restringida, EstadoZona estado) {
         this.id = id;
         this.nombre = nombre;
@@ -36,9 +39,8 @@ public class Zona {
         this.estado = estado;
         this.elementos = elementos;
     }
-    // GETTERS Y SETTERS
 
-
+    // 4. GETTERS Y SETTERS
     public String getId() {
         return id;
     }
@@ -55,6 +57,7 @@ public class Zona {
         this.nombre = nombre;
     }
 
+    // Con boolean el getter empieza por "is" en vez de "get"
     public boolean isRestringida() {
         return restringida;
     }
@@ -79,21 +82,10 @@ public class Zona {
         this.elementos = elementos;
     }
 
-    //ToString
-
-
+    // 5. toString: muy útil para depurar y para los logs
     @Override
     public String toString() {
-        return "Zona{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", restringida=" + restringida +
-                ", estado=" + estado +
-                ", elementos=" + elementos +
-                '}';
+        return "Zona{id='" + id + "', nombre='" + nombre + "', restringida=" + restringida
+                + ", estado=" + estado + ", elementos=" + elementos.size() + "}";
     }
-
-    //Metodos
-
-
 }

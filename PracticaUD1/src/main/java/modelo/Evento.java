@@ -4,32 +4,28 @@ import modelo.enums.TipoEvento;
 
 import java.time.LocalDateTime;
 
+/**
+ * Un acontecimiento de la ciudad. Cada Evento es una línea de eventos.txt.
+ */
 public class Evento {
 
     private LocalDateTime fechaHora;
-    private String idZona;
-    private String idElemento;
+    private String idZona;       // "Z01"
+    private String idElemento;   // "G03", o "-" si no afecta a ningún elemento concreto
     private TipoEvento tipo;
     private String descripcion;
-
-
-    //Constructores
-
 
     public Evento() {
     }
 
-    public Evento(LocalDateTime fechaHora, String idZona, String idElemento, TipoEvento tipo, String descripcion) {
+    public Evento(LocalDateTime fechaHora, String idZona, String idElemento,
+                  TipoEvento tipo, String descripcion) {
         this.fechaHora = fechaHora;
         this.idZona = idZona;
         this.idElemento = idElemento;
         this.tipo = tipo;
         this.descripcion = descripcion;
     }
-
-
-    //Getter y Setter
-
 
     public LocalDateTime getFechaHora() {
         return fechaHora;
@@ -71,17 +67,9 @@ public class Evento {
         this.descripcion = descripcion;
     }
 
-    //ToString
-
-
     @Override
     public String toString() {
-        return "Evento{" +
-                "fechaHora=" + fechaHora +
-                ", idZona='" + idZona + '\'' +
-                ", idElemento='" + idElemento + '\'' +
-                ", tipo=" + tipo +
-                ", descripcion='" + descripcion + '\'' +
-                '}';
+        return "Evento{fechaHora=" + fechaHora + ", zona='" + idZona + "', elemento='" + idElemento
+                + "', tipo=" + tipo + ", descripcion='" + descripcion + "'}";
     }
 }

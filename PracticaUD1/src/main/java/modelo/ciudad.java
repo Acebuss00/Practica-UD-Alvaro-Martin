@@ -3,6 +3,9 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Raíz de ciudad.xml: contiene todas las zonas y los personajes.
+ */
 public class ciudad {
 
     private String nombre;
@@ -100,4 +103,3 @@ public class ciudad {
         return null;
     }
 }
-

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Configuración solo para los tests (Log4j la usa en lugar de log4j2.xml cuando existe).
+  Así los tests no llenan logs/evidencias ni logs/runtime con ejecuciones de prueba.
+-->
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Consola" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{1} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="WARN">
+            <AppenderRef ref="Consola"/>
+        </Root>
+    </Loggers>
+</Configuration>

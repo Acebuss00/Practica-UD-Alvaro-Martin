@@ -1,5 +1,13 @@
 package modelo.enums;
 
+/**
+ * Tipos de medición que puede tomar una runa de vigilancia, con su rango normal.
+ *
+ * IMPORTANTE: en el fichero binario se guarda la posición (ordinal) de cada valor:
+ * MANA = 0, ENERGIA_ARCANA = 1, TEMPERATURA = 2...
+ * Si cambias el orden o insertas valores en medio, los ficheros antiguos se leerán mal.
+ * Los valores nuevos se añaden siempre al final.
+ */
 public enum TipoRuna {
     //                    mínimo  máximo  unidad
     MANA                 (500,    1000,   "pts"),

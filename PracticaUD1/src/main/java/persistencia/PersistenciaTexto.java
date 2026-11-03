@@ -18,8 +18,15 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Escribe y lee eventos.txt usando java.io clásico (BufferedWriter / BufferedReader).
+ *
+ * Formato de cada línea (separador ";"):
+ *   fechaHora;idZona;idElemento;tipo;descripcion
+ * Ejemplo:
+ *   2026-11-02T18:45:12;Z01;G03;AVISTAMIENTO;Grupo de necrófagos junto a la puerta
+ */
 public class PersistenciaTexto {
-
 
     private static final Logger log = LogManager.getLogger(PersistenciaTexto.class);
 
@@ -111,5 +118,4 @@ public class PersistenciaTexto {
         }
         return texto.replace(SEPARADOR, ",").replace("\n", " ").replace("\r", " ");
     }
-
 }

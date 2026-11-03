@@ -34,13 +34,9 @@ public class Simulador {
     private static final Logger log = LogManager.getLogger(Simulador.class);
 
     public static final int CICLOS_POR_DEFECTO = 30;
-    /**
-     * En modo normal, probabilidad de que ocurra un incidente durante la simulación.
-     */
+    /** En modo normal, probabilidad de que ocurra un incidente durante la simulación. */
     private static final double PROBABILIDAD_INCIDENTE = 0.85;
-    /**
-     * En modo prueba, el incidente empieza en este ciclo (antes hay operativa normal).
-     */
+    /** En modo prueba, el incidente empieza en este ciclo (antes hay operativa normal). */
     private static final int CICLO_INICIO_PRUEBA = 5;
 
     private final Escenario escenario;
@@ -57,9 +53,7 @@ public class Simulador {
     // MODOS DE EJECUCIÓN
     // =====================================================================
 
-    /**
-     * Modo normal: el incidente, el tipo y el momento se eligen al azar (o ninguno).
-     */
+    /** Modo normal: el incidente, el tipo y el momento se eligen al azar (o ninguno). */
     public void ejecutarAleatorio(int ciclos) throws IOException, EventoCriticoException {
         TipoIncidente incidente = null;
         int cicloInicio = -1;
@@ -72,26 +66,22 @@ public class Simulador {
         ejecutar(incidente, cicloInicio, ciclos);
     }
 
-    /**
-     * Modo prueba: provoca siempre el incidente indicado.
-     */
+    /** Modo prueba: provoca siempre el incidente indicado. */
     public void ejecutarIncidente(TipoIncidente incidente, int ciclos) throws IOException, EventoCriticoException {
         ejecutar(incidente, CICLO_INICIO_PRUEBA, Math.max(ciclos, CICLO_INICIO_PRUEBA + MotorIncidentes.PASOS));
     }
 
-    /**
-     * Solo operativa normal, sin incidentes.
-     */
+    /** Solo operativa normal, sin incidentes. */
     public void ejecutarNormal(int ciclos) throws IOException, EventoCriticoException {
         ejecutar(null, -1, ciclos);
     }
 
     /**
      * Bucle principal. En cada ciclo:
-     * 1. operativa normal (un acontecimiento en el TXT)
-     * 2. si hay incidente en curso, su paso correspondiente (TXT y XML)
-     * 3. mediciones de las 12 runas (BIN)
-     * 4. comprobación de situación crítica (puede lanzar EventoCriticoException)
+     *   1. operativa normal (un acontecimiento en el TXT)
+     *   2. si hay incidente en curso, su paso correspondiente (TXT y XML)
+     *   3. mediciones de las 12 runas (BIN)
+     *   4. comprobación de situación crítica (puede lanzar EventoCriticoException)
      */
     private void ejecutar(TipoIncidente incidente, int cicloInicio, int ciclos)
             throws IOException, EventoCriticoException {
@@ -127,24 +117,18 @@ public class Simulador {
     // OPERATIVA NORMAL
     // =====================================================================
 
-    /**
-     * Un acontecimiento habitual de la ciudad, elegido al azar.
-     */
+    /** Un acontecimiento habitual de la ciudad, elegido al azar. */
     private void operativaNormal() throws IOException {
         switch (random.nextInt(5)) {
             case 0 -> operacionElemento(TipoElemento.GUARDIA, TipoEvento.CAMBIO_TURNO, "Relevo de guardia de %s");
-            case 1 ->
-                    operacionElemento(TipoElemento.PORTAL, TipoEvento.VIAJE_PORTAL, "Viaje por el portal %s sin incidencias");
+            case 1 -> operacionElemento(TipoElemento.PORTAL, TipoEvento.VIAJE_PORTAL, "Viaje por el portal %s sin incidencias");
             case 2 -> operacionElemento(TipoElemento.CRISTAL, TipoEvento.RECARGA, "Recarga completa del cristal %s");
-            case 3 ->
-                    operacionElemento(TipoElemento.ALMACEN, TipoEvento.REPARTO_GRANO, "Reparto de grano del almacén %s");
+            case 3 -> operacionElemento(TipoElemento.ALMACEN, TipoEvento.REPARTO_GRANO, "Reparto de grano del almacén %s");
             default -> accesoAutorizado();
         }
     }
 
-    /**
-     * Elige un elemento OPERATIVO de ese tipo y registra la operación.
-     */
+    /** Elige un elemento OPERATIVO de ese tipo y registra la operación. */
     private void operacionElemento(TipoElemento tipo, TipoEvento evento, String descripcion) throws IOException {
         List<String[]> candidatos = new ArrayList<>();     // {idZona, idElemento}
         for (Zona zona : escenario.getCiudad().getZonas()) {
@@ -162,9 +146,7 @@ public class Simulador {
         escenario.registrarEvento(elegido[0], elegido[1], evento, String.format(descripcion, elegido[1]));
     }
 
-    /**
-     * Un personaje de la Alianza entra en una de las zonas que tiene permitidas.
-     */
+    /** Un personaje de la Alianza entra en una de las zonas que tiene permitidas. */
     private void accesoAutorizado() throws IOException {
         List<Personaje> personajes = new ArrayList<>(escenario.getCiudad().getPersonajes());
         personajes.removeIf(p -> !p.getId().matches("PJ00\\d"));   // solo los habitantes iniciales
@@ -181,9 +163,7 @@ public class Simulador {
         return valores;
     }
 
-    /**
-     * Todos los incidentes menos INDETERMINADO, que solo lo usa el analizador.
-     */
+    /** Todos los incidentes menos INDETERMINADO, que solo lo usa el analizador. */
     public static TipoIncidente[] incidentesSimulables() {
         List<TipoIncidente> lista = new ArrayList<>(List.of(TipoIncidente.values()));
         lista.remove(TipoIncidente.INDETERMINADO);

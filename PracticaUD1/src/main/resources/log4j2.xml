@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Configuración externa de Log4j 2.
+  Las rutas son relativas a la carpeta desde la que se ejecuta el programa (la raíz del proyecto).
+-->
+<Configuration status="WARN">
+
+    <Properties>
+        <!-- Cada línea: fecha y hora, nivel, logger (clase) y mensaje -->
+        <Property name="patron">%d{dd/MM/yyyy HH:mm:ss.SSS} %-5level %logger{1} - %msg%n</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- Consola: solo lo importante -->
+        <Console name="Consola" target="SYSTEM_OUT">
+            <PatternLayout pattern="${patron}"/>
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+
+        <!--
+          Evidencias: un fichero NUEVO por ejecución.
+          ${date:...} se evalúa al arrancar, así que el nombre lleva la fecha y hora de inicio.
+          El formato no usa ":" para que el nombre sea válido en Windows.
+        -->
+        <File name="Evidencias"
+              fileName="logs/evidencias/ejecucion_${date:dd-MM-yyyy_HH-mm-ss}.log">
+            <PatternLayout pattern="${patron}"/>
+        </File>
+
+        <!--
+          Log de funcionamiento con rotación por tamaño:
+          - cuando aplicacion.log supera 10 KB se archiva y se empieza uno nuevo
+          - los archivados se llaman aplicacion-AAAA-MM-DD-N.log.gz (fecha + índice) y se comprimen
+          - se conservan como máximo 5 archivados; al llegar al sexto se borra el más antiguo
+        -->
+        <RollingFile name="Rotativo"
+                     fileName="logs/runtime/aplicacion.log"
+                     filePattern="logs/runtime/aplicacion-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${patron}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 KB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- Todas las clases del proyecto: DEBUG (detalle de cada lectura y evento) -->
+        <Root level="DEBUG">
+            <AppenderRef ref="Consola"/>
+            <AppenderRef ref="Evidencias"/>
+            <AppenderRef ref="Rotativo"/>
+        </Root>
+    </Loggers>
+</Configuration>
